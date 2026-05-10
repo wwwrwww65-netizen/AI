@@ -6,5 +6,5 @@ export default defineConfig({
   plugins: [
     react(),
   ],
-  base: './', // Ensures assets are loaded relatively, making it more portable on GitHub Pages
+  base: '/AI/', // Set to your repository name for correct asset loading on GitHub Pages
 })
