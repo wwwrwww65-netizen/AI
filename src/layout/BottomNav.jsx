@@ -12,7 +12,7 @@ const BottomNav = ({ type = 'buyer' }) => {
   ];
 
   const sellerLinks = [
-    { icon: <PieChart className="w-5 h-5" />, label: 'الإحصائيات', path: '/seller/dashboard' },
+    { icon: <PieChart className="w-5 h-5" />, label: 'التحليلات', path: '/seller/analytics' },
     { icon: <Package className="w-5 h-5" />, label: 'منتجاتي', path: '/seller/products' },
     { icon: <PlusCircle className="w-5 h-5" />, label: 'إضافة', path: '/seller/add-product' },
     { icon: <ClipboardList className="w-5 h-5" />, label: 'الطلبات', path: '/seller/orders' },

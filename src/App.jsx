@@ -27,11 +27,16 @@ import Notifications from './pages/Notifications';
 import Support from './pages/Support';
 import SellerOrderDetails from './pages/SellerOrderDetails';
 import AddReview from './pages/AddReview';
+import SellerAnalytics from './pages/SellerAnalytics';
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
   return (
     <HashRouter>
+      <ScrollToTop />
       <div className="min-h-screen bg-dark text-white font-sans selection:bg-neon-blue selection:text-dark">
+
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<Navigate to="/buyer/home" replace />} />
@@ -72,7 +77,9 @@ function App() {
                 <Route path="chat" element={<Chat />} />
                 <Route path="notifications" element={<Notifications />} />
                 <Route path="ai-assistant" element={<AIAssistant />} />
+                <Route path="analytics" element={<SellerAnalytics />} />
                 <Route path="*" element={<Navigate to="dashboard" />} />
+
               </Routes>
             } />
 
