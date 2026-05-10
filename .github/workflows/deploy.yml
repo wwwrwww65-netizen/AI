@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feat/productive-families-platform-1621113571129647399
 
 permissions:
   contents: write
