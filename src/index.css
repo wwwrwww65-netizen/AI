@@ -1,40 +1,46 @@
 @import "tailwindcss";
 
 @theme {
-  --color-dark: #0a0a0c;
+  --color-dark: #070708;
+  --color-darker: #040405;
   --color-neon-blue: #00f3ff;
   --color-neon-purple: #bc13fe;
   --color-neon-pink: #ff00ff;
   --color-neon-green: #00ff66;
+  --color-neon-orange: #ff8a00;
 
-  --font-sans: 'Inter', 'Noto Sans Arabic', system-ui, sans-serif;
+  --font-sans: 'Inter', 'Outfit', 'Noto Sans Arabic', system-ui, sans-serif;
+  
+  --shadow-neon-blue: 0 0 20px rgba(0, 243, 255, 0.3);
+  --shadow-neon-purple: 0 0 20px rgba(188, 19, 254, 0.3);
 }
 
 @layer base {
   body {
     @apply bg-dark text-white antialiased selection:bg-neon-blue selection:text-dark;
     background-attachment: fixed;
-    background-image:
-      radial-gradient(circle at 0% 0%, rgba(188, 19, 254, 0.05) 0%, transparent 50%),
-      radial-gradient(circle at 100% 100%, rgba(0, 243, 255, 0.05) 0%, transparent 50%);
+    background-image: 
+      radial-gradient(circle at 10% 10%, rgba(188, 19, 254, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 90% 90%, rgba(0, 243, 255, 0.08) 0%, transparent 40%),
+      radial-gradient(circle at 50% 50%, rgba(7, 7, 8, 1) 0%, rgba(4, 4, 5, 1) 100%);
   }
 }
 
 @layer components {
   .glass {
-    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/10 shadow-[0_8px_32px_0_rgba(0,0,0,0.8)];
+    @apply bg-white/[0.03] backdrop-blur-2xl border border-white/5 shadow-[0_8px_32px_0_rgba(0,0,0,0.6)];
   }
 
-  .glass-morphism {
-    @apply bg-white/[0.05] backdrop-blur-3xl border border-white/20;
+  .glass-card {
+    @apply bg-gradient-to-br from-white/[0.07] to-white/[0.01] backdrop-blur-xl border border-white/10;
   }
 
-  .neon-border-blue {
-    @apply border-neon-blue/50 shadow-[0_0_15px_rgba(0,243,255,0.3)];
+  .neon-glow-blue {
+    @apply shadow-[0_0_20px_rgba(0,243,255,0.4)] border-neon-blue/50;
   }
 
-  .neon-text-purple {
-    @apply text-neon-purple drop-shadow-[0_0_8px_rgba(188,19,254,0.8)];
+  .premium-gradient-text {
+    @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
   }
 
   .no-scrollbar::-webkit-scrollbar {
@@ -44,9 +50,29 @@
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+
+  .btn-premium {
+    @apply relative overflow-hidden transition-all duration-500 active:scale-95;
+  }
+
+  .btn-premium::after {
+    content: '';
+    @apply absolute inset-0 bg-white/10 opacity-0 transition-opacity duration-300;
+  }
+
+  .btn-premium:hover::after {
+    @apply opacity-100;
+  }
 }
 
-/* RTL Support for specific components if needed */
-[dir="rtl"] .framer-motion-rtl {
-  direction: rtl;
+/* Custom Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
 }
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+

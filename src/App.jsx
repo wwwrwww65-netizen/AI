@@ -34,7 +34,7 @@ function App() {
       <div className="min-h-screen bg-dark text-white font-sans selection:bg-neon-blue selection:text-dark">
         <AnimatePresence mode="wait">
           <Routes>
-            <Route path="/" element={<Splash />} />
+            <Route path="/" element={<Navigate to="/buyer/home" replace />} />
             <Route path="/auth/choose" element={<ChooseAccount />} />
             <Route path="/auth/register/seller" element={<RegisterSeller />} />
             <Route path="/auth/register/buyer" element={<div className="p-10 text-center"><h1 className="text-xl font-bold">تسجيل مشتري جديد</h1><button onClick={() => window.location.hash='#/buyer/home'} className="mt-4 glass p-4 rounded-xl">تخطي</button></div>} />
